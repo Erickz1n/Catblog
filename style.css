@@ -39,20 +39,27 @@ body {
     height: 100vh;
 }
 
-.container {
-    width: min(43rem, 100%);
-    padding: 2.2rem;
-    margin: 0 auto;
+main .container {
+    max-width: 43rem;
+}
+
+.main, .others {
+    padding: 0 2.2rem;
 }
 
 .image {
-    width: min(43rem, 100%);
-    border-radius: .5rem;
+    width: 100%;
+    margin-bottom: 4rem;
+}
+
+.maincat {
+    width: 100%;
+    object-fit: contain;
 }
 
 header {
-    padding: 1.2rem 2.8rem;
-    width: min(43rem, 100%);
+    width: 100%;
+    padding: 2.8rem 1.5rem;
 
     height: 7.2rem;
     background-color: var(--base-color-blue);
@@ -67,6 +74,10 @@ nav {
 
 header form {
     flex: 1;
+}
+
+nav {
+    width: 100%;
 }
 
 .input-wrapper label {
@@ -87,7 +98,6 @@ header form {
     
     font-size: 1.6rem;
     font-weight: 600;
-    margin-right: 1rem;
 }
 
 .input-wrapper input::placeholder {
@@ -109,8 +119,6 @@ nav .img {
 main {
     overflow-y: scroll;
     background-color: var(--base-color-white);
-
-    width: min(43rem, 100%);
 }
 
 main .icons {
@@ -129,7 +137,8 @@ main .icons {
 .others {
     display: flex;
     flex-direction: column;
-    gap: 3.2rem;
+    gap: 3.2rem 0;
+    margin-bottom: 4rem;
 }
 
 .others figure {
@@ -137,6 +146,11 @@ main .icons {
     display: flex;
     gap: 1.6rem;
     align-items: center;
+}
+
+.others figure img {
+    width: 15rem;
+    height: 8.4rem;
 }
 
 .others figure h2 {
@@ -161,7 +175,7 @@ footer {
     align-items: center;
 
     padding: 1.6rem;
-    width: min(43rem, 100%);
+    width: 100%;
     height: 6.4rem;
 
     background-color: var(--base-color-blue);
@@ -172,4 +186,47 @@ footer p {
     font-size: 1.6rem;
     font-style: normal;
     font-weight: 600;
+}
+
+@media (min-width: 1440px) {
+
+    .first {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    main .container {
+        max-width: 1440px;
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        grid-template-areas: 
+        "A A B"
+        "C C B"
+        "C C D";
+    }
+
+    .image {
+        grid-area: A;
+    }
+
+    .article {
+        grid-area: C;
+    }
+
+    .others {
+        grid-area: B;
+    }
+
+    main {
+        padding: 4.4rem 10.9rem;
+    }
+
+    header nav{
+        height: 7.2rem;
+        padding: 1.2rem 11.2rem;
+    }
+
+    footer {
+    }
 }
